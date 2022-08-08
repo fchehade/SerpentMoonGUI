@@ -45,11 +45,9 @@ Click on the `Submit`-Button and the text below will update according to your in
     + `git clone https://github.com/fchehade/SerpentMoonGUI.git`
 
 2. Change directory `cd` to the SerpentMoonGUI root directory.
-3. Create a virtual environment and install requirements.txt
-    + `python3 -m venv venv`
-    + `venv/Scripts/activate`
-    + `pip install requirements.txt`
-4. Run the `main.py` file in the SerpentMoonGUI directory.
+3. Run the following commands
+    + `pip install .`
+    +  with an open terminal, run the following command: `moon`
 
 **How to Contribute**
 ---
