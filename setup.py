@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='SerpentMoon',
-    version='0.0.1',
+    version='0.1.0',
     packages=find_packages(include=["SerpentMoonGUI", "SerpentMoonGUI.*"]),
     url='https://www.github.com/fchehade/SerpentMoonGUI',
     license='MIT',

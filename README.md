@@ -17,6 +17,7 @@ Constructive criticism and contributions are well appreciated.
 + [Installation Options](#installation-options)
 + [How to contribute](#how-to-contribute)
 + [License](#license)
++ [Acknowledgements](#acknowledgements)
 + [Donations](#donations)
 
 **Key Features**
@@ -60,9 +61,16 @@ Click on the `Submit`-Button and the text below will update according to your in
 ---
 This project is licensed under [MIT](LICENSE)
 
+**Acknowledgements**
+---
+The art kit used in this project is from the official [Hunt: Showdown Fan Kit](https://www.huntshowdown.com/news/download-the-hunt-fan-kit) which states the following:
+
+>Whether you want to make a website, a blog post, fan art, or just want to put a Hunt wallpaper up on your desktop, Hunt fan kit's got your back.
+The fan kit has art for social media, general artwork, backgrounds, concept art, logos, screenshots, wallpapers, weapon images, and web page backgrounds that you can use however you'd like.
+
 **Donations**
 ---
 
-This is free, open-source software. If you'd like to support the development of future projects, or say thanks for this one, you can donate at [Paypal](https://www.paypal.me/decalift) or [buy me a coffee](https://www.buymeacoffee.com/decalift).
+This is free, open-source software. If you'd like to support the development of future projects, or say thanks for this one, you can donate at [PayPal](https://www.paypal.me/decalift) or [buy me a coffee](https://www.buymeacoffee.com/decalift).
 
 <a href="https://www.paypal.me/decalift"><img src="https://www.paypalobjects.com/webstatic/de_DE/i/de-pp-logo-200px.png" alt="PayPal Logo"></a>&nbsp; &nbsp; <a href="https://www.buymeacoffee.com/decalift" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/guidelines/download-assets-sm-2.svg" alt="Buy Me A Coffee"/></a>
