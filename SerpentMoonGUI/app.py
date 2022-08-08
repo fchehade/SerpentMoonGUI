@@ -4,15 +4,13 @@ import tkinter
 from datetime import datetime
 from tkinter import ttk
 
-from SerpentMoonGUI.calculator import calculate_needed_points
+from SerpentMoonGUI.calculator import calculate_needed_points, calculate_percentage_done
 
 root_directory = pathlib.Path(__file__).parent.resolve()
-
-base_path = os.path.abspath(".")
 image_path = "art\\hunt_logo.ico"
 background_image = "art\\bg.png"
-f1 = os.path.join(base_path, image_path)
-f2 = os.path.join(base_path, background_image)
+f1 = os.path.join(root_directory, image_path)
+f2 = os.path.join(root_directory, background_image)
 
 
 class App(tkinter.Tk):
@@ -21,7 +19,7 @@ class App(tkinter.Tk):
         self.title("Serpent Moon Calculator")
         self.geometry("1280x720")
         self.resizable(False, False)
-        self.iconbitmap(f1)
+        self.iconbitmap(default=f1)
 
         self.canvas = tkinter.Canvas(self)
         self.canvas.pack(fill="both", expand=True)
@@ -106,6 +104,9 @@ class App(tkinter.Tk):
                                   window=self.answer_label,
                                   anchor="center")
 
+        # Progress Bar
+        self.progress = ttk.Progressbar(self.canvas, orient="horizontal", length=1200, mode="determinate")
+        self.canvas.create_window(640, 680, anchor="center", window=self.progress)
         self.countdown()
 
     def on_button_press(self):
@@ -124,6 +125,8 @@ class App(tkinter.Tk):
         if points_needed < 0:
             return
         self.answer_label.configure(text=f"{points_needed} points/day")
+        percentage_done = calculate_percentage_done(level, points)
+        self.progress["value"] = percentage_done
 
     def countdown(self):
         remaining_time = datetime(2022, 9, 26, 16, 0, 0) - datetime.now()

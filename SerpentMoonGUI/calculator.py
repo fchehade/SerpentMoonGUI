@@ -28,3 +28,14 @@ def calculate_needed_points(current_level: int,
     remaining_event_points = remaining_total_event_points - current_event_points
     needed_xp = round(remaining_event_points / days_remaining, 2)
     return needed_xp
+
+
+def calculate_percentage_done(current_level: int,
+                              current_event_points: int, ):
+    event_levels = {i: (300 + (100 * i)) for i in range(1, 20)}
+    max_event_points = sum(event_levels.values())
+    collected_points = current_event_points
+    for i in range(1, current_level + 1):
+        collected_points += event_levels[i]
+
+    return int(collected_points / max_event_points *100)
