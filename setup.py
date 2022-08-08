@@ -4,7 +4,7 @@ setup(
     name='SerpentMoon',
     version='0.0.1',
     packages=find_packages(include=["SerpentMoonGUI", "SerpentMoonGUI.*"]),
-    url='https://www.github.com/fchehade/SerpentMoon',
+    url='https://www.github.com/fchehade/SerpentMoonGUI',
     license='MIT',
     author='Fouzy Robert Chehade',
     author_email='fouzy_chehade@icloud.com',
