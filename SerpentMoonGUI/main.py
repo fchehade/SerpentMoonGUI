@@ -1,4 +1,4 @@
-from SerpentMoonGUI.GUI.app import App
+from SerpentMoonGUI.app import App
 
 
 def main():

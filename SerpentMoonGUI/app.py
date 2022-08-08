@@ -3,9 +3,9 @@ import tkinter
 from datetime import datetime
 from tkinter import ttk
 
-from SerpentMoonGUI.Calculator.calculator import calculate_needed_points
+from SerpentMoonGUI.calculator import calculate_needed_points
 
-root_directory = pathlib.Path(__file__).parent.parent.resolve()
+root_directory = pathlib.Path(__file__).parent.resolve()
 
 
 class App(tkinter.Tk):
