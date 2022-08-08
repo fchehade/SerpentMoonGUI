@@ -1,3 +1,4 @@
+import os
 import pathlib
 import tkinter
 from datetime import datetime
@@ -7,6 +8,12 @@ from SerpentMoonGUI.calculator import calculate_needed_points
 
 root_directory = pathlib.Path(__file__).parent.resolve()
 
+base_path = os.path.abspath(".")
+image_path = "art\\hunt_logo.ico"
+background_image = "art\\bg.png"
+f1 = os.path.join(base_path, image_path)
+f2 = os.path.join(base_path, background_image)
+
 
 class App(tkinter.Tk):
     def __init__(self):
@@ -14,12 +21,12 @@ class App(tkinter.Tk):
         self.title("Serpent Moon Calculator")
         self.geometry("1280x720")
         self.resizable(False, False)
-        self.iconbitmap(pathlib.PurePath.joinpath(root_directory, "art/hunt_logo.ico"))
+        self.iconbitmap(f1)
 
         self.canvas = tkinter.Canvas(self)
         self.canvas.pack(fill="both", expand=True)
 
-        self.canvas.image = tkinter.PhotoImage(file=pathlib.PurePath.joinpath(root_directory, "art/bg.png"))
+        self.canvas.image = tkinter.PhotoImage(file=f2)
         self.canvas.create_image(0, 0, image=self.canvas.image, anchor="nw")
 
         # Title
