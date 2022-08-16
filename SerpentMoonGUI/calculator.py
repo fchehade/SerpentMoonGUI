@@ -38,4 +38,4 @@ def calculate_percentage_done(current_level: int,
     for i in range(1, current_level + 1):
         collected_points += event_levels[i]
 
-    return int(collected_points / max_event_points *100)
+    return collected_points / max_event_points * 100

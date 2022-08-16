@@ -19,12 +19,18 @@ class App(tkinter.Tk):
         self.title("Serpent Moon Calculator")
         self.geometry("1280x720")
         self.resizable(False, False)
-        self.iconbitmap(default=f1)
+        try:
+            self.iconbitmap(default=f1)
+        except:
+            self.iconbitmap(default="art/hunt_logo.ico")
 
         self.canvas = tkinter.Canvas(self)
         self.canvas.pack(fill="both", expand=True)
 
-        self.canvas.image = tkinter.PhotoImage(file=f2)
+        try:
+            self.canvas.image = tkinter.PhotoImage(file=f2)
+        except:
+            self.canvas.image = tkinter.PhotoImage(file="art/bg.png")
         self.canvas.create_image(0, 0, image=self.canvas.image, anchor="nw")
 
         # Title
@@ -106,10 +112,15 @@ class App(tkinter.Tk):
 
         # Progress Bar
         self.progress = ttk.Progressbar(self.canvas, orient="horizontal", length=1200, mode="determinate")
-        self.canvas.create_window(640, 680, anchor="center", window=self.progress)
+        self.percentage = ttk.Label(self.canvas, text="0.00% / 100.0%")
+        self.canvas.create_window(640, 660, anchor="center", window=self.progress)
+        self.canvas.create_window(640, 695, anchor="center", window=self.percentage)
         self.countdown()
 
-    def on_button_press(self):
+        self.bind("<Return>", func=self.on_button_press)
+        self.level_entry.focus()
+
+    def on_button_press(self, _=None):
         if not self.level_entry.get().isnumeric() or not self.points_entry.get().isnumeric():
             self.level_entry.delete(0, 200)
             self.points_entry.delete(0, 200)
@@ -118,15 +129,14 @@ class App(tkinter.Tk):
         level = int(self.level_entry.get())
         points = int(self.points_entry.get())
 
-        self.level_entry.delete(0, 200)
-        self.points_entry.delete(0, 200)
-
         points_needed = calculate_needed_points(level, points)
         if points_needed < 0:
             return
         self.answer_label.configure(text=f"{points_needed} points/day")
         percentage_done = calculate_percentage_done(level, points)
+        self.percentage.configure(text=f"{percentage_done:.2f}% / 100.0%")
         self.progress["value"] = percentage_done
+        self.level_entry.focus()
 
     def countdown(self):
         remaining_time = datetime(2022, 9, 26, 16, 0, 0) - datetime.now()
